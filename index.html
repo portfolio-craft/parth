@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parth Vakani, Technology Consultant & Business Analyst</title>
+<meta name="description" content="Parth Vakani, Technology Consultant and Business Analyst. MBA, CS Engineer, Certified Scrum Master. Delivering digital government services and enterprise systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF; --mist:#F4FAFE; --tint:#E3F4FD;
+    --navy:#0E2433; --slate:#4F6D80; --faint:#7B95A6;
+    --line:#E3EBF1; --line2:#C7DCE8;
+    --cyan:#00A3E0; --cyan-bright:#38BDF8; --deep:#0077B6; --pale:#B9E4F8;
+    --ok:#1AA179;
+    --maxw:1120px; --gutter:clamp(20px,5vw,72px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--white);color:var(--navy);
+    font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;line-height:1.1;margin:0;letter-spacing:-.02em;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);}
+  ::selection{background:var(--cyan);color:#fff;}
+
+  #bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:70;}
+
+  nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:14px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .brand{font-family:"Plus Jakarta Sans";font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px;}
+  .brand .dot{width:9px;height:9px;background:var(--cyan);border-radius:2px;transform:rotate(45deg);}
+  .nav-links{display:flex;gap:2px;flex-wrap:wrap;font-size:14px;font-weight:500;}
+  .nav-links a{padding:7px 12px;color:var(--slate);transition:color .15s;position:relative;}
+  .nav-links a:hover{color:var(--navy);}
+  .nav-links a.active{color:var(--cyan);}
+  .nav-links a.active::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--cyan);}
+  .nav-cta{border:1.5px solid var(--navy);border-radius:4px;color:var(--navy)!important;font-weight:600;}
+  .nav-cta:hover{background:var(--navy);color:#fff!important;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter);}
+
+  /* ---------- HERO ---------- */
+  .hero{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#FDFEFF,#EFF8FB);}
+  .hero-in{max-width:var(--maxw);margin:0 auto;padding:clamp(60px,10vw,110px) var(--gutter) clamp(56px,8vw,92px);
+    display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,56px);align-items:center;}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.1rem);color:var(--navy);margin:20px 0 0;}
+  .hero h1 .accent{color:var(--cyan);}
+  .rot-line{font-size:clamp(1.02rem,2.1vw,1.28rem);margin-top:20px;color:var(--slate);font-weight:500;}
+  .rot{display:inline-block;min-width:13ch;color:var(--cyan);font-weight:700;border-bottom:2px solid var(--pale);
+    transition:opacity .3s,transform .3s;}
+  .rot.swap{opacity:0;transform:translateY(6px);}
+  .hero .pitch{max-width:54ch;margin-top:20px;color:var(--slate);font-size:1.03rem;}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:24px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--faint);}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:14px 24px;border-radius:4px;transition:transform .18s,box-shadow .18s,background .18s,color .18s,border-color .18s;}
+  .btn .arr{transition:transform .18s;}
+  .btn:hover{transform:translateY(-2px);} .btn:hover .arr{transform:translateX(4px);}
+  .btn.solid{background:var(--cyan);color:#fff;box-shadow:0 10px 26px -12px rgba(0,163,224,.6);}
+  .btn.solid:hover{background:var(--deep);}
+  .btn.line{border:1.5px solid var(--navy);color:var(--navy);}
+  .btn.line:hover{background:var(--navy);color:#fff;}
+
+  /* ---------- KANBAN (hero art) ---------- */
+  .kanban{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;
+    box-shadow:0 30px 60px -34px rgba(14,36,51,.4);}
+  .kb-head{display:flex;justify-content:space-between;align-items:center;padding:2px 4px 12px;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);letter-spacing:.1em;}
+  .kb-head .live{display:inline-flex;align-items:center;gap:6px;color:var(--ok);}
+  .kb-head .live i{width:6px;height:6px;background:var(--ok);border-radius:50%;animation:blip 1.6s ease-in-out infinite;}
+  @keyframes blip{0%,100%{opacity:1;}50%{opacity:.25;}}
+  .kb-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  .kb-col{background:var(--mist);border:1px solid var(--line);border-radius:8px;padding:8px 7px;min-height:186px;}
+  .kb-col h4{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:500;letter-spacing:.08em;
+    color:var(--faint);text-transform:uppercase;margin:0 0 8px;padding-left:2px;}
+  .card{background:#fff;border:1px solid var(--line2);border-left:3px solid var(--cyan);border-radius:5px;
+    padding:7px 8px;margin-bottom:6px;font-size:10.5px;line-height:1.35;color:var(--navy);
+    box-shadow:0 2px 5px -3px rgba(14,36,51,.25);}
+  .card .t{font-family:"IBM Plex Mono",monospace;font-size:8.5px;color:var(--faint);display:block;margin-bottom:3px;}
+  .card.done{border-left-color:var(--ok);opacity:.85;}
+  .card.uat{border-left-color:var(--cyan-bright);}
+  .card.mv{animation:pop .5s cubic-bezier(.2,.8,.3,1);}
+  @keyframes pop{from{opacity:0;transform:translateX(-14px) scale(.96);}to{opacity:1;transform:none;}}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;background:#fff;}
+  .track{display:flex;width:max-content;animation:scroll 38s linear infinite;}
+  .marquee:hover .track{animation-play-state:paused;}
+  .track span{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.07em;color:var(--faint);padding:0 24px;white-space:nowrap;}
+  .track span b{color:var(--slate);font-weight:500;}
+  .track i{color:var(--cyan);font-style:normal;}
+  @keyframes scroll{to{transform:translateX(-50%);}}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding-block:clamp(60px,8vw,98px);}
+  .sec-head{margin-bottom:42px;}
+  .sec-head .eyebrow{display:block;margin-bottom:12px;}
+  .sec-head h2{font-size:clamp(1.7rem,3.8vw,2.4rem);color:var(--navy);position:relative;display:inline-block;padding-bottom:14px;}
+  .sec-head h2::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));transition:width .9s cubic-bezier(.3,.8,.3,1) .1s;}
+  .sec-head.in h2::after{width:100%;}
+  .lead{max-width:64ch;font-size:clamp(1.04rem,2vw,1.18rem);color:var(--slate);line-height:1.7;}
+  .lead b{color:var(--navy);font-weight:600;}
+
+  /* ---------- STATS ---------- */
+  .stats{background:var(--mist);border-block:1px solid var(--line);}
+  .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .tile{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px 20px;position:relative;overflow:hidden;
+    transition:transform .25s,border-color .25s,box-shadow .25s;}
+  .tile::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));
+    transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.3,.8,.3,1);}
+  .tile.in::before{transform:scaleX(1);}
+  .tile:hover{transform:translateY(-4px);border-color:var(--pale);box-shadow:0 18px 40px -22px rgba(14,36,51,.35);}
+  .tile .num{font-family:"Plus Jakarta Sans";font-size:2.7rem;font-weight:800;color:var(--cyan);line-height:1;}
+  .tile .num .suf{font-size:1.5rem;}
+  .tile .lbl{margin-top:10px;font-size:.85rem;font-weight:500;color:var(--slate);}
+
+  /* ---------- SPRINT CYCLE ---------- */
+  .cycle-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(24px,5vw,52px);align-items:center;}
+  .cycle-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;
+    box-shadow:0 24px 52px -32px rgba(14,36,51,.35);}
+  .cycle-card svg{width:100%;height:auto;display:block;}
+  .phase-list{list-style:none;margin:0;padding:0;}
+  .phase-list li{padding:14px 16px;border-radius:8px;border:1px solid transparent;margin-bottom:6px;
+    display:flex;gap:14px;align-items:flex-start;transition:background .3s,border-color .3s;}
+  .phase-list li.on{background:var(--tint);border-color:var(--pale);}
+  .phase-list .pn{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--cyan);padding-top:3px;font-weight:500;}
+  .phase-list .ph{font-family:"Plus Jakarta Sans";font-weight:700;font-size:1.02rem;color:var(--navy);}
+  .phase-list .pd{font-size:.92rem;color:var(--slate);margin-top:2px;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:44px;}
+  .timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--line);}
+  .timeline .progress{position:absolute;left:11px;top:6px;width:2px;height:0;background:linear-gradient(180deg,var(--cyan),var(--cyan-bright));}
+  .xp{position:relative;padding-bottom:42px;}
+  .xp:last-child{padding-bottom:6px;}
+  .xp .node{position:absolute;left:-40px;top:8px;width:14px;height:14px;border-radius:3px;background:#fff;transform:rotate(45deg);
+    border:2px solid var(--line2);transition:border-color .4s,box-shadow .4s,background .4s;}
+  .xp.lit .node{border-color:var(--cyan);background:var(--cyan);box-shadow:0 0 0 5px rgba(0,163,224,.14);}
+  .xp .role{font-family:"Plus Jakarta Sans";font-size:1.28rem;font-weight:700;color:var(--navy);}
+  .xp .org{font-size:.95rem;color:var(--slate);margin-top:4px;}
+  .xp .when{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--cyan);letter-spacing:.06em;margin-top:6px;}
+  .xp ul{margin:14px 0 0;padding-left:1.1em;color:var(--slate);}
+  .xp li{margin-bottom:8px;}
+  .xp li::marker{color:var(--cyan);}
+  .xp li b{color:var(--navy);font-weight:600;}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .proj{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px 30px;
+    transition:transform .25s,border-color .25s,box-shadow .25s;}
+  .proj:hover{transform:translateY(-4px);border-color:var(--pale);box-shadow:0 22px 46px -26px rgba(14,36,51,.35);}
+  .proj .ptag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--cyan);}
+  .proj h3{font-size:1.18rem;font-weight:700;margin:12px 0 9px;color:var(--navy);}
+  .proj p{margin:0 0 16px;color:var(--slate);font-size:.95rem;}
+  .metrics{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;color:var(--deep);
+    background:var(--tint);border:1px solid var(--pale);border-radius:20px;padding:5px 12px;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .skill-col{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px;transition:border-color .25s,transform .25s,box-shadow .25s;}
+  .skill-col:hover{border-color:var(--pale);transform:translateY(-3px);box-shadow:0 18px 38px -24px rgba(14,36,51,.3);}
+  .skill-col h3{font-family:"IBM Plex Mono";font-size:11.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);
+    padding-bottom:13px;margin:0 0 13px;border-bottom:1px solid var(--line);}
+  .skill-col ul{list-style:none;margin:0;padding:0;}
+  .skill-col li{padding:6px 0;font-size:.95rem;color:var(--slate);display:flex;align-items:center;gap:10px;}
+  .skill-col li::before{content:"";width:5px;height:5px;background:var(--cyan);border-radius:1px;transform:rotate(45deg);flex:none;}
+
+  /* ---------- CERTS ---------- */
+  .certs{display:flex;flex-wrap:wrap;gap:10px;}
+  .cert{font-size:.92rem;font-weight:500;color:var(--navy);background:var(--mist);border:1px solid var(--line);border-radius:6px;padding:10px 16px;
+    transition:border-color .2s,transform .2s;}
+  .cert:hover{border-color:var(--cyan);transform:translateY(-2px);}
+
+  /* ---------- EDU / LIST ROWS ---------- */
+  .row{display:grid;grid-template-columns:230px 1fr;gap:6px 40px;padding-block:24px;}
+  .row+.row{border-top:1px solid var(--line);}
+  .row .when{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--cyan);letter-spacing:.06em;}
+  .row h3{font-size:1.1rem;font-weight:700;color:var(--navy);}
+  .row p{margin:4px 0 0;color:var(--slate);font-size:.94rem;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:linear-gradient(135deg,var(--deep),var(--cyan) 68%,var(--cyan-bright));color:#fff;}
+  .contact .eyebrow{color:#C9EEF7;}
+  .contact h2{color:#fff;font-size:clamp(1.8rem,4.2vw,2.6rem);margin:12px 0 10px;}
+  .contact .sub{color:#DBF3FA;max-width:52ch;}
+  .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;}
+  .ci{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:22px 24px;
+    transition:background .25s,transform .25s;backdrop-filter:blur(4px);}
+  .ci:hover{background:rgba(255,255,255,.22);transform:translateY(-3px);}
+  .ci .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#C9EEF7;}
+  .ci .v{display:block;margin-top:9px;font-size:.99rem;color:#fff;word-break:break-word;transition:color .15s;}
+  a.v:hover{color:#0B2430;}
+  footer{color:var(--faint);text-align:center;font-size:13px;padding:24px var(--gutter);border-top:1px solid var(--line);background:#fff;}
+  footer b{color:var(--slate);font-weight:500;}
+
+  [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);}
+  [data-reveal].in{opacity:1;transform:none;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    [data-reveal]{opacity:1!important;transform:none!important;transition:none!important;}
+    .sec-head h2::after{width:100%;transition:none;}
+    .tile::before{transform:scaleX(1);transition:none;}
+    html{scroll-behavior:auto;}
+  }
+  @media (max-width:940px){
+    .hero-in,.cycle-grid{grid-template-columns:1fr;}
+    .tiles{grid-template-columns:repeat(3,1fr);}
+    .skill-cols{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:680px){
+    .row{grid-template-columns:1fr;gap:8px;}
+    .proj-grid{grid-template-columns:1fr;}
+    .tiles{grid-template-columns:repeat(2,1fr);}
+    .nav-links a:not(.nav-cta){display:none;}
+    .kb-cols{grid-template-columns:repeat(2,1fr);}
+    .timeline{padding-left:34px;} .xp .node{left:-30px;}
+  }
+  :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav>
+  <div class="nav-in">
+    <span class="brand"><span class="dot"></span>Parth Vakani</span>
+    <div class="nav-links">
+      <a href="#impact">Impact</a>
+      <a href="#approach">Approach</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="Parth_Vakani_Resume.pdf" class="nav-cta" target="_blank" rel="noopener">Resume ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">Technology Consulting · Business Analysis · Agile Delivery</span>
+      <h1>Turning requirements into <span class="accent">working software.</span></h1>
+      <p class="rot-line">I'm Parth Vakani, a technology consultant who delivers <span class="rot" id="rot">digital services</span></p>
+      <p class="pitch">MBA, CS engineer and Certified Scrum Master. I sit between stakeholders and development teams, translating what the business needs into user stories, sprints and tested releases that actually ship.</p>
+      <div class="meta">
+        <span>CONSULTANT · THE BARRINGTON CONSULTING GROUP</span>
+        <span>HALIFAX, NOVA SCOTIA</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn solid" href="#contact">Get in touch <span class="arr">→</span></a>
+        <a class="btn line" href="Parth_Vakani_Resume.pdf" target="_blank" rel="noopener">Download resume <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <!-- LIVE KANBAN -->
+    <div class="kanban" aria-hidden="true">
+      <div class="kb-head"><span>SPRINT BOARD</span><span class="live"><i></i>IN PROGRESS</span></div>
+      <div class="kb-cols">
+        <div class="kb-col"><h4>Backlog</h4><div id="c0"></div></div>
+        <div class="kb-col"><h4>In Progress</h4><div id="c1"></div></div>
+        <div class="kb-col"><h4>UAT</h4><div id="c2"></div></div>
+        <div class="kb-col"><h4>Done</h4><div id="c3"></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="track">
+    <span><b>Business Analysis</b></span><span><i>◆</i></span><span><b>Agile / Scrum</b></span><span><i>◆</i></span>
+    <span><b>UAT &amp; Regression Testing</b></span><span><i>◆</i></span><span><b>User Stories</b></span><span><i>◆</i></span>
+    <span><b>Dynamics 365</b></span><span><i>◆</i></span><span><b>BPMN / Signavio</b></span><span><i>◆</i></span>
+    <span><b>SAP S/4HANA</b></span><span><i>◆</i></span><span><b>Data Migration</b></span><span><i>◆</i></span>
+    <span><b>Stakeholder Management</b></span><span><i>◆</i></span><span><b>Business Intelligence</b></span><span><i>◆</i></span>
+    <span><b>Risk Management</b></span><span><i>◆</i></span><span><b>Kaizen</b></span><span><i>◆</i></span>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<section class="stats" id="impact">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Track Record</span><h2>Delivery that moves numbers</h2></div>
+    <p class="lead" style="margin-bottom:32px">Five years across <b>government digital services, enterprise software and technology sales</b>, from requirements through to post-release support.</p>
+    <div class="tiles">
+      <div class="tile" data-reveal><div class="num" data-target="6">0</div><div class="lbl">Government digital platforms</div></div>
+      <div class="tile" data-reveal><div class="num" data-target="2600">0</div><div class="lbl">Users on D365 CRM rollout</div></div>
+      <div class="tile" data-reveal><div class="num" data-target="40"><span class="suf">%</span></div><div class="lbl">YoY licensing sales growth</div></div>
+      <div class="tile" data-reveal><div class="num" data-target="197">0</div><div class="lbl">Clients in penetration model</div></div>
+      <div class="tile" data-reveal><div class="num" data-target="5">0</div><div class="lbl">Years industry experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH / SPRINT CYCLE -->
+<section id="approach">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">How I Work</span><h2>The delivery cycle</h2></div>
+    <div class="cycle-grid">
+      <div class="cycle-card" data-reveal>
+        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-label="Agile delivery cycle">
+          <defs>
+            <marker id="ca" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M1 1 L7 4 L1 7" fill="none" stroke="#00A3E0" stroke-width="1.3"/>
+            </marker>
+          </defs>
+          <circle cx="150" cy="150" r="98" fill="none" stroke="#E3EBF1" stroke-width="10"/>
+          <circle id="arc" cx="150" cy="150" r="98" fill="none" stroke="#00A3E0" stroke-width="10"
+            stroke-linecap="round" transform="rotate(-90 150 150)"
+            stroke-dasharray="615" stroke-dashoffset="615" style="transition:stroke-dashoffset .6s cubic-bezier(.4,.8,.3,1)"/>
+          <g id="dots">
+            <circle class="cd" cx="150" cy="52" r="11" fill="#fff" stroke="#C7DCE8" stroke-width="2"/>
+            <circle class="cd" cx="243" cy="120" r="11" fill="#fff" stroke="#C7DCE8" stroke-width="2"/>
+            <circle class="cd" cx="208" cy="230" r="11" fill="#fff" stroke="#C7DCE8" stroke-width="2"/>
+            <circle class="cd" cx="92" cy="230" r="11" fill="#fff" stroke="#C7DCE8" stroke-width="2"/>
+            <circle class="cd" cx="57" cy="120" r="11" fill="#fff" stroke="#C7DCE8" stroke-width="2"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#4F6D80" text-anchor="middle">
+            <text x="150" y="32">DISCOVER</text>
+            <text x="257" y="106">DEFINE</text>
+            <text x="222" y="258">BUILD</text>
+            <text x="78" y="258">TEST</text>
+            <text x="44" y="106">RELEASE</text>
+          </g>
+          <text id="ctr" x="150" y="146" font-family="Plus Jakarta Sans, sans-serif" font-size="19" font-weight="700" fill="#0E2433" text-anchor="middle">Discover</text>
+          <text x="150" y="168" font-family="IBM Plex Mono, monospace" font-size="10" fill="#7B95A6" text-anchor="middle">CONTINUOUS DELIVERY</text>
+        </svg>
+      </div>
+      <ul class="phase-list" id="phases">
+        <li data-p="0"><span class="pn">01</span><div><div class="ph">Discover</div><div class="pd">Gather requirements from product owners, program managers and service designers.</div></div></li>
+        <li data-p="1"><span class="pn">02</span><div><div class="ph">Define</div><div class="pd">Translate needs into user stories, acceptance criteria and a prioritized backlog.</div></div></li>
+        <li data-p="2"><span class="pn">03</span><div><div class="ph">Build</div><div class="pd">Run sprint planning and scrum ceremonies, keeping teams aligned on scope and timelines.</div></div></li>
+        <li data-p="3"><span class="pn">04</span><div><div class="ph">Test</div><div class="pd">Drive UAT, functional, regression and system-integration testing before every release.</div></div></li>
+        <li data-p="4"><span class="pn">05</span><div><div class="ph">Release</div><div class="pd">Support go-live, resolve defects, and manage change so adoption actually sticks.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--mist);border-block:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Experience</span><h2>Where I've delivered</h2></div>
+    <div class="timeline" id="timeline">
+      <div class="progress" id="tl-progress"></div>
+
+      <div class="xp" data-reveal>
+        <span class="node"></span>
+        <div class="role">Consultant · Business Analyst</div>
+        <div class="org">The Barrington Consulting Group · Halifax, NS</div>
+        <div class="when">SINCE JAN 2024</div>
+        <ul>
+          <li>Business Analyst across <b>six Nova Scotia government digital services</b>, defining scope and the development lifecycle from design review to post go-live support.</li>
+          <li>Run scrum frameworks and sprint cycles that keep <b>service designers, developers and business stakeholders aligned</b> on timelines and constraints.</li>
+          <li>Lead negotiations on Definition of Done and acceptance criteria, surfacing constraints early to avoid unmet expectations.</li>
+          <li>Own testing roadmaps: <b>unit, functional, regression, UAT and post-deployment</b>, including security upgrades and change management.</li>
+        </ul>
+      </div>
+
+      <div class="xp" data-reveal>
+        <span class="node"></span>
+        <div class="role">Teaching Assistant &amp; Course Support</div>
+        <div class="org">Dalhousie University · Faculty of Management</div>
+        <div class="when">SINCE SEP 2025</div>
+        <ul>
+          <li>Support Project Management, Management Software &amp; Technology, and Information Management Systems courses, <b>lecturing and hosting guest speakers</b>.</li>
+          <li>Single-handedly run TA and marking operations for <b>over 130 students</b>, including BPMN (Signavio) and HTML/CSS exercises using generative AI.</li>
+        </ul>
+      </div>
+
+      <div class="xp" data-reveal>
+        <span class="node"></span>
+        <div class="role">Business Analyst Co-op</div>
+        <div class="org">Fusion, Jonas Software (Constellation) · London, ON</div>
+        <div class="when">JAN 2022 TO AUG 2022</div>
+        <ul>
+          <li>Audited flagship products to identify most-used features and direct the 2.0 product roadmap.</li>
+          <li>Modelled a market penetration plan across <b>197 clients</b>, targeting a <b>20% lift in mobile app adoption</b> in two quarters.</li>
+        </ul>
+      </div>
+
+      <div class="xp" data-reveal>
+        <span class="node"></span>
+        <div class="role">Deputy Manager of Sales · Business Analyst</div>
+        <div class="org">Microsoft &amp; Ingram Micro · Mumbai, India</div>
+        <div class="when">JUN 2019 TO MAY 2021</div>
+        <ul>
+          <li>Led end-to-end implementation of <b>Microsoft Dynamics 365 CRM for 2,600+ users</b>, including secure data migration from legacy ERP.</li>
+          <li>Grew Microsoft licensing sales <b>40% YoY ($2M to $3M)</b> and Azure market share from <b>33% to 46%</b>.</li>
+          <li>Onboarded <b>50+ resellers</b>, enabling <b>$100K revenue within one month</b>.</li>
+          <li>Drove <b>8+ cross-functional process improvement initiatives</b>: business requirements, redesigned SOPs and KPI frameworks supporting audit readiness.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Selected Engagements</span><h2>Digital services, shipped</h2></div>
+    <p class="lead" style="margin-bottom:32px">Public-facing platforms delivered for the <b>Province of Nova Scotia</b> with the Barrington Consulting Group.</p>
+    <div class="proj-grid">
+
+      <div class="proj" data-reveal>
+        <span class="ptag">Province of Nova Scotia</span>
+        <h3>Digital Delivery Management Partner (DS4U)</h3>
+        <p>Nine modernized web platforms delivering citizen and business services. Bridged stakeholder needs with digital solutions, ensuring each platform was user-friendly, accessible and aligned to government service standards.</p>
+        <div class="metrics"><span class="chip">9 platforms</span><span class="chip">Accessibility</span><span class="chip">Go-live support</span></div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <span class="ptag">Nova Scotia Digital Service</span>
+        <h3>Procurement Online Service Modernization</h3>
+        <p>Centralized platform giving vendors access to provincial tender opportunities with transparent sourcing and award processes. Managed the product backlog, sprint planning and bi-weekly release priorities.</p>
+        <div class="metrics"><span class="chip">Backlog ownership</span><span class="chip">Sprint planning</span><span class="chip">User stories</span></div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <span class="ptag">Nova Scotia Digital Service</span>
+        <h3>Online Dealer Services (RMV)</h3>
+        <p>Streamlined vehicle registration and permitting for motor dealers and rental agencies. Ran UAT loops, analysed transaction process flows and led functional, performance and data-validation testing.</p>
+        <div class="metrics"><span class="chip">UAT</span><span class="chip">Process flows</span><span class="chip">Data validation</span></div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <span class="ptag">Nova Scotia Digital Service</span>
+        <h3>Citizen Online Booking Tool</h3>
+        <p>Appointment booking for Access Nova Scotia, extended to Vital Statistics services. Created wireframes and interactive mock-ups, and wrote user stories for six distinct application flows.</p>
+        <div class="metrics"><span class="chip">Wireframes</span><span class="chip">6 user flows</span><span class="chip">Mock-ups</span></div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <span class="ptag">Nova Scotia Digital Service</span>
+        <h3>Seniors Care Grant</h3>
+        <p>Eligibility, application and status-tracking platform for the provincial seniors assistance program, integrated with the AMANDA backend. Led UAT, functional and system-integration testing for the 2024 release.</p>
+        <div class="metrics"><span class="chip">AMANDA integration</span><span class="chip">System integration testing</span></div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <span class="ptag">Nova Scotia Digital Service</span>
+        <h3>Heating Assistance Rebate Program</h3>
+        <p>Online rebate platform for low-income households. Gathered eligibility requirements, ran root cause analysis on defects and validated data integrity end to end through to the AMANDA system.</p>
+        <div class="metrics"><span class="chip">Root cause analysis</span><span class="chip">Post-delivery support</span></div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <span class="ptag">Pier Labs · Social Enterprise</span>
+        <h3>Hope Blooms Tokenization</h3>
+        <p>Migration strategy from cash-backed donations to a Solana-based token system, shifting purchasing power to beneficiaries at farmers' markets. Ran feasibility testing and identified arbitrage risks to the beneficiary community.</p>
+        <div class="metrics"><span class="chip">Blockchain feasibility</span><span class="chip">Risk analysis</span><span class="chip">Food security</span></div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <span class="ptag">Ingram Micro · Enterprise</span>
+        <h3>Dynamics 365 CRM Implementation</h3>
+        <p>End-to-end CRM rollout for 2,600+ professionals: scrum management, legacy ERP data migration, user training and change management driving sustainable adoption across seven business verticals.</p>
+        <div class="metrics"><span class="chip">2,600+ users</span><span class="chip">Data migration</span><span class="chip">Change management</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--mist);border-block:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Capabilities</span><h2>Skills &amp; tools</h2></div>
+    <div class="skill-cols">
+      <div class="skill-col" data-reveal><h3>Business Analysis</h3>
+        <ul><li>Requirements Gathering</li><li>User Stories &amp; Acceptance Criteria</li><li>Business Process Analysis</li><li>BPMN (Signavio)</li><li>Wireframing &amp; Mock-ups</li><li>Stakeholder Management</li></ul></div>
+      <div class="skill-col" data-reveal style="transition-delay:.08s"><h3>Delivery &amp; QA</h3>
+        <ul><li>Agile · Scrum · Kanban</li><li>Sprint &amp; Backlog Management</li><li>UAT &amp; Regression Testing</li><li>Functional &amp; Integration Testing</li><li>Risk Management</li><li>Kaizen · MVP Definition</li></ul></div>
+      <div class="skill-col" data-reveal style="transition-delay:.16s"><h3>Systems &amp; Analytics</h3>
+        <ul><li>Microsoft Dynamics 365</li><li>SAP S/4HANA</li><li>Microsoft 365 (MS-900)</li><li>Data Migration Planning</li><li>Business Intelligence</li><li>Monte Carlo Simulation</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Credentials</span><h2>Certifications</h2></div>
+    <div class="certs" data-reveal>
+      <span class="cert">Certified Scrum Master (Scrum Alliance)</span>
+      <span class="cert">Certified Scrum Product Owner (Scrum Alliance)</span>
+      <span class="cert">MS-900 Microsoft 365 Certified</span>
+      <span class="cert">Project Management for Technical Projects (PMI)</span>
+      <span class="cert">SAP S/4HANA University Alliance Award</span>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Education</span><h2>Academic background</h2></div>
+    <div class="row" data-reveal><div class="when">MBA · TRIPLE MAJOR</div>
+      <div><h3>Master of Business Administration</h3><p>Dalhousie University · Enterprise Analytics, Financial Management, Marketing (A grades)</p></div></div>
+    <div class="row" data-reveal><div class="when">B.TECH</div>
+      <div><h3>Bachelor of Technology, Computer Science Engineering</h3><p>NMIMS University</p></div></div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" style="background:var(--mist);border-block:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Community</span><h2>Mentorship &amp; leadership</h2></div>
+    <div class="row" data-reveal><div class="when">SINCE SEP 2025</div>
+      <div><h3>Lead Mentor · Re-Defined Canada</h3><p>Lead engagement, mentorship and learning for the Atlantic provinces within a non-profit serving 50,000+ students and early professionals. Host career workshops, panels and 1:1 resume and LinkedIn reviews.</p></div></div>
+    <div class="row" data-reveal><div class="when">SPEAKING</div>
+      <div><h3>Panels &amp; guest sessions</h3><p>Career-foundation panels with Re-Defined, guest insights on the future of project management to Dalhousie students alongside PMI Nova Scotia board members.</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2>Let's talk delivery</h2>
+    <p class="sub">Open to technology consulting, business analysis and product delivery conversations.</p>
+    <div class="contact-grid">
+      <div class="ci" data-reveal><span class="k">Email</span><a class="v" href="mailto:parth.vakani@dal.ca">parth.vakani@dal.ca</a></div>
+      <div class="ci" data-reveal><span class="k">Phone</span><a class="v" href="tel:+19029898420">+1 902 989 8420</a></div>
+      <div class="ci" data-reveal><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/parth-vakani/" target="_blank" rel="noopener">linkedin.com/in/parth-vakani ↗</a></div>
+      <div class="ci" data-reveal><span class="k">Resume</span><a class="v" href="Parth_Vakani_Resume.pdf" target="_blank" rel="noopener">Download PDF ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<footer><b>© 2026 Parth Vakani</b> · Technology Consultant &amp; Business Analyst · Halifax, NS</footer>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var bar=document.getElementById('bar');
+  function onScroll(){ var h=document.documentElement.scrollHeight-innerHeight; bar.style.width=(h>0?(scrollY/h*100):0)+'%'; }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* rotating tagline */
+  var words=['digital services','tested releases','enterprise systems','working software'];
+  var rot=document.getElementById('rot'), wi=0;
+  if(!reduce){ setInterval(function(){ rot.classList.add('swap');
+    setTimeout(function(){ wi=(wi+1)%words.length; rot.textContent=words[wi]; rot.classList.remove('swap'); },300); },2600); }
+
+  /* ---- LIVE KANBAN ---- */
+  var items=[
+    {t:'NS-118', s:'Eligibility form validation'},
+    {t:'NS-204', s:'Tender document upload'},
+    {t:'NS-231', s:'Booking flow: Vital Stats'},
+    {t:'NS-090', s:'Regression: security patch'},
+    {t:'NS-176', s:'AMANDA data mapping'},
+    {t:'NS-142', s:'Dealer permit workflow'}
+  ];
+  var cols=[document.getElementById('c0'),document.getElementById('c1'),document.getElementById('c2'),document.getElementById('c3')];
+  var state=[[],[],[],[]];
+  function render(){
+    cols.forEach(function(col,ci){
+      col.innerHTML='';
+      state[ci].forEach(function(it){
+        var d=document.createElement('div');
+        d.className='card'+(ci===3?' done':ci===2?' uat':'')+(it.moved?' mv':'');
+        d.innerHTML='<span class="t">'+it.t+'</span>'+it.s;
+        col.appendChild(d); it.moved=false;
+      });
+    });
+  }
+  // seed
+  state[0]=[Object.assign({},items[0]),Object.assign({},items[1])];
+  state[1]=[Object.assign({},items[2])];
+  state[2]=[Object.assign({},items[3])];
+  state[3]=[Object.assign({},items[4])];
+  render();
+  var pool=4;
+  if(!reduce){
+    setInterval(function(){
+      // advance one card from a random non-empty column (right to left keeps flow natural)
+      for(var ci=3; ci>=0; ci--){
+        if(ci===3){ if(state[3].length>2) state[3].shift(); continue; }
+        if(state[ci].length){
+          var card=state[ci].shift(); card.moved=true; state[ci+1].push(card); break;
+        }
+      }
+      if(!state[0].length){ var n=Object.assign({},items[pool%items.length]); pool++; n.moved=true; state[0].push(n); }
+      render();
+    },1900);
+  }
+
+  /* marquee dup */
+  var track=document.getElementById('track');
+  track.innerHTML += track.innerHTML;
+  if(reduce) track.style.animation='none';
+
+  /* reveal */
+  var io=new IntersectionObserver(function(en){ en.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },
+    {threshold:.15,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('[data-reveal], .sec-head, .tile').forEach(function(el){ io.observe(el); });
+
+  /* count-up */
+  function fmt(n){ return n>=1000 ? n.toLocaleString() : n; }
+  function countUp(el){
+    var target=+el.dataset.target, suf=el.querySelector('.suf'), dur=1200, start=performance.now();
+    if(reduce){ el.textContent=fmt(target); if(suf) el.appendChild(suf); return; }
+    (function step(now){ var p=Math.min((now-start)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=fmt(Math.round(target*e)); if(suf) el.appendChild(suf);
+      if(p<1) requestAnimationFrame(step); })(start);
+  }
+  var cio=new IntersectionObserver(function(en){ en.forEach(function(e){
+    if(e.isIntersecting){ countUp(e.target); cio.unobserve(e.target);} }); },{threshold:.5});
+  document.querySelectorAll('.num[data-target]').forEach(function(el){ cio.observe(el); });
+
+  /* ---- SPRINT CYCLE stepper ---- */
+  var names=['Discover','Define','Build','Test','Release'];
+  var arc=document.getElementById('arc'), ctr=document.getElementById('ctr');
+  var dots=document.querySelectorAll('.cd'), lis=document.querySelectorAll('#phases li');
+  var LEN=615, pi=0;
+  function setPhase(i){
+    pi=i;
+    arc.style.strokeDashoffset = LEN - (LEN*((i+1)/5));
+    ctr.textContent = names[i];
+    dots.forEach(function(d,di){
+      d.setAttribute('fill', di<=i ? '#00A3E0' : '#fff');
+      d.setAttribute('stroke', di<=i ? '#00A3E0' : '#C7DCE8');
+    });
+    lis.forEach(function(l,li2){ l.classList.toggle('on', li2===i); });
+  }
+  setPhase(0);
+  var timer;
+  function autoCycle(){ timer=setInterval(function(){ setPhase((pi+1)%5); },2200); }
+  if(!reduce) autoCycle();
+  lis.forEach(function(l){ l.addEventListener('mouseenter',function(){
+    clearInterval(timer); setPhase(+l.dataset.p);
+  }); l.addEventListener('mouseleave',function(){ if(!reduce) autoCycle(); }); });
+
+  /* timeline */
+  var tl=document.getElementById('timeline'), prog=document.getElementById('tl-progress');
+  function drawTL(){
+    if(!tl) return;
+    var r=tl.getBoundingClientRect();
+    prog.style.height=Math.min(Math.max(innerHeight*0.7-r.top,0),r.height)+'px';
+    tl.querySelectorAll('.xp').forEach(function(x){
+      x.classList.toggle('lit', x.getBoundingClientRect().top < innerHeight*0.72); });
+  }
+  if(reduce){ prog.style.height='100%'; document.querySelectorAll('.xp').forEach(function(x){x.classList.add('lit');}); }
+  else { addEventListener('scroll',drawTL,{passive:true}); drawTL(); }
+
+  /* active nav */
+  var links=[].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var spy=new IntersectionObserver(function(en){ en.forEach(function(e){
+    if(e.isIntersecting){ var id='#'+e.target.id;
+      links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')===id); }); } }); },
+    {rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){ if(s) spy.observe(s); });
+})();
+</script>
+</body>
+</html>
